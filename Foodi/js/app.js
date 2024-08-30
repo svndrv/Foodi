@@ -1,48 +1,76 @@
 $(function () {
     
     listar_platos();
+    obtener_filtro_platos();
+    
     
 });
+
+const obtener_filtro_platos = function(){
+    $('#search').on('input', function() {
+        let name = $(this).val();
+        if(name.length > 0) {
+            buscar_platos_por_nombre(name);
+        } else {
+            listar_platos();
+        }
+    });
+}
+
+const buscar_platos_por_nombre = function(name) {
+    $.ajax({
+        url: "controller/platos.php",
+        method: "POST",
+        data: { option: "search", name: name },
+        success: function(response) {
+            renderizar_platos(response);
+        }
+    });
+}
 
 const listar_platos = function(){
     $.ajax({
         url: "controller/platos.php",
         success: function(response){
-            const data = JSON.parse(response);
-            let html = ``;
-            if(data.length > 0){
-                data.map((x)=>{
-                    const {id, name} = x;
-                    html = 
-                        html + `<div class="group-card-platos col-lg-3 col-md-6 col-sm-12">
-                                    <div class="mb-3">
-                                        <div class="card-platos card shadow-sm" onclick="alerta(${id})">
-                                            <img src="img/cat.jpg" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${name}</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>`;
-                });
-            }else{
-                html =
-                    html + `<div class="col-lg-2 col-sm-12">
-                                <div class="mb-3">
-                                    <div class="card-platos card" onclick="alerta()">
-                                        <img src="img/user.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="card-title">No-Found</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`;
-            }
-            $("#listar-platos").html(html);
+            renderizar_platos(response);
         }
     })
 }
 
+
+const renderizar_platos = function(response) {
+    const data = JSON.parse(response);
+    let html = ``;
+    if (data.length > 0) {
+        data.map((x) => {
+            const { id, name } = x;
+            html = 
+                html + `<div class="group-card-platos col-lg-3 col-md-6 col-sm-12">
+                            <div class="mb-3">
+                                <div class="card-platos card shadow-sm" onclick="alerta(${id})">
+                                    <img src="img/cat.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <i class="fa-solid fa-utensils"></i>
+                                        <h5 class="card-title">${name}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+        });
+    } else {
+        html =
+            html + `<div class="group-card-platos col-lg-3 col-md-6 col-sm-12">
+                        <div class="mb-3">
+                            <div class="card-platos card shadow-sm" onclick="alerta()">
+                                <img src="img/user.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">No-Found</h5>
+                                </div>
+                            </div>
+                        </div>`;
+    }
+    $("#listar-platos").html(html);
+}
 
 
 

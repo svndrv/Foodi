@@ -2,18 +2,23 @@
     <article class="row mt-4">
         <div class="col-lg-3">
             <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese la comida">
+            <div class="mb-3">
+                <div class="input-group mb-2">
+                    <input type="text" id="search" class="form-control fs-6" placeholder="Ingresar comida">
+                    <span class="input-group-text">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                </div>
+            </div>
             </div>
         </div>
-        <div class="col-lg-3 bg-primary">
-            <div class="">
-                123
-            </div>
+        <div class="col-lg-3">
+            
         </div>
-        <div class="col-lg-6 bg-success">
+        <div class="col-lg-6">
             <div class="mb-3 text-end">
 
-                <button class="btn shadow-sm w-50">Agregar</button>
+                <button class="btn shadow-sm w-25">Agregar</button>
             </div>
         </div>
     </article>

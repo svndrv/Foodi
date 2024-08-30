@@ -15,6 +15,7 @@ $preparation = '';
 $type = '';
 $calories = '';
 $id_user = '';
+$query = '';
 
 if(isset($_POST['option'])){ $option = $_POST['option']; }else{ $option = "";};
 if(isset($_POST['id'])){ $id = $_POST['id']; }else{ $id = "";};
@@ -25,10 +26,14 @@ if(isset($_POST['type'])){ $type = $_POST['type']; }else{ $type = "";};
 if(isset($_POST['calories'])){ $calories = $_POST['calories']; }else{ $calories = "";};
 if(isset($_POST['id_user'])){ $id_user = $_POST['id_user']; }else{ $id_user = "";};
 
-switch($option){
+switch($option){   
+    case 'search':
+        echo json_encode($platos->buscar_platos_por_nombre($name));
+        break;
+
     default:
         echo json_encode($platos->obtener_platos());
-    break;
+        break;
 }
 
 

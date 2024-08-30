@@ -17,4 +17,13 @@ class Platos extends Conectar
         return $sql->fetchAll(PDO::FETCH_ASSOC); 
     }
 
+    public function buscar_platos_por_nombre($name)
+    {
+        $sql = "SELECT * FROM plates WHERE name LIKE :name";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(':name', '%' . $name . '%', PDO::PARAM_STR);
+        $sql->execute();
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

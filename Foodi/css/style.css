@@ -96,7 +96,6 @@ header .card .card-body img{
     margin: 0 auto;
     box-sizing: border-box;
     overflow: hidden;
-    color: red;
     transition: 0.5s ease;
 }
 
@@ -378,7 +377,7 @@ main.min-main{
 @media (max-width: 1440px) {
     .seccion-platos .card-platos {
         width: 20rem;
-        color: purple;
+        
     }
 
     .seccion-platos .card-platos:hover{
@@ -391,7 +390,7 @@ main.min-main{
 @media (max-width: 1200px) {
     .seccion-platos .card-platos {
         width: 100%;
-        color: green;
+        
     }
     .seccion-platos .card-platos:hover{
         width: 105%;
@@ -402,7 +401,7 @@ main.min-main{
 @media (max-width: 992px) {
     .seccion-platos .card-platos {
         width: 100%;
-        color: orange;
+        
     }
     .seccion-platos .card-platos:hover{
         width: 105%;
@@ -413,7 +412,7 @@ main.min-main{
 @media (max-width: 768px) {
     .seccion-platos .card-platos {
         width: 100%;
-        color: teal;
+        
     }
     .seccion-platos .card-platos:hover{
         width: 100%;
@@ -424,7 +423,7 @@ main.min-main{
 @media (max-width: 600px) {
     .seccion-platos .card-platos {
         width: 100%;
-        color: blue;
+        
     }
     .seccion-platos .card-platos:hover{
         width: 100%;
