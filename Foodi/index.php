@@ -11,15 +11,31 @@
 </head>
 
 <body>
-
     <?php require "includes/sidebar.php" ?>
-    <main>
-        <h1>Contenido</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure nam aliquid debitis voluptatum reiciendis reprehenderit minus, et sed hic suscipit facilis enim totam. Nesciunt eveniet velit modi voluptates temporibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure nam aliquid debitis voluptatum reiciendis reprehenderit minus, et sed hic suscipit facilis enim totam. Nesciunt eveniet velit modi voluptates temporibus?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure nam aliquid debitis voluptatum reiciendis reprehenderit minus, et sed hic suscipit facilis enim totam. Nesciunt eveniet velit modi voluptates temporibus?</p>
+    <?php $view = $_GET['view']; ?>
+    <main class="p-5">
+        <?php require "includes/header.php" ?>   
+        <?php switch ($view) {
+                case "platos":
+                    require './views/platos.php';
+                    break;
+                case "calendario":
+                    require './views/calendario.php';
+                    break;
+                case "suministros":
+                    require './views/suministros.php';
+                    break;
+                case "inicio":
+                    require './views/inicio.php';
+                    break;
+                default:
+                    require './views/inicio.php';
+                    break;
+                
+            }
+            ?> 
+              
     </main>
-
 
 </body>
 

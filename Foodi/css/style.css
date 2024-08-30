@@ -5,7 +5,7 @@
     --color-texto:rgb(0,0,0);
     --color-texto-menu:rgb(134,136,144);
 
-    --color-menu-hover:rgb(238,238,238);
+    --color-menu-hover:rgb(200, 255, 229);
     --color-menu-hover-texto:rgb(0,0,0);
 
     --color-boton:rgb(0,0,0);
@@ -26,7 +26,7 @@
     --color-texto:rgb(255,255,255);
     --color-texto-menu:rgb(110,110,117);
 
-    --color-menu-hover:rgb(0,0,0);
+    --color-menu-hover:rgb(33, 164, 103);
     --color-menu-hover-texto:rgb(238,238,238);
 
     --color-boton:rgb(255,255,255);
@@ -51,8 +51,61 @@
 body{
     height: 100vh;
     width: 100%;
-    background-color: darkcyan;
+    background-color: rgb(242, 242, 242);
 }
+
+/*-----------------Inputs-Selectores general*/
+/* 
+.form-control:focus{
+    background-color: red;
+} */
+
+/*-----------------Botones general*/
+
+.btn {
+    background:var(--color-menu-hover);
+    color:var(--color-menu-hover-texto);
+    transition: 0.5s ease;
+}
+.btn:hover {
+    background:var(--color-menu-hover);
+    color:var(--color-menu-hover-texto);
+}
+
+/*-----------------Platos contenido*/
+
+header .card .card-body{
+    font-size: 24px;
+}
+
+header .card .card-body img{
+    width: 30px;
+}
+
+.barra-lateral img{
+    width: 50px;
+}
+
+/* .group-card-platos{
+    background-color: aqua;
+} */
+
+.seccion-platos .card-platos{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: red;
+    transition: 0.5s ease;
+}
+
+.seccion-platos .card-platos:hover{
+    width: 105%;
+    max-width: 105%;
+}
+
+
 
 /*-----------------Menu*/
 .menu{
@@ -255,7 +308,7 @@ body{
 .barra-lateral .usuario img{
     width: 50px;
     min-width: 50px;
-    border-radius: 10px;
+    border-radius: 50%;
 }
 .barra-lateral .usuario .info-usuario{
     width: 100%;
@@ -282,6 +335,23 @@ body{
     font-size: 20px;
 }
 
+.barra-lateral .info-usuario .drop{
+    color: var(--color-texto);
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    display: none;
+  }
+
+.barra-lateral .usuario .dropdown-menu .dropdown-item{
+    color: var(--color-texto-menu);
+}
+
+.barra-lateral .usuario .dropdown-menu .dropdown-item:hover{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
 
 /*-------------main*/
 
@@ -302,6 +372,66 @@ main.min-main{
 
 
 /*------------------> Responsive*/
+
+
+/* Para pantallas de 1440px o menos */
+@media (max-width: 1440px) {
+    .seccion-platos .card-platos {
+        width: 20rem;
+        color: purple;
+    }
+
+    .seccion-platos .card-platos:hover{
+        width: 20rem;
+    }
+    
+}
+
+/* Para pantallas de 1200px o menos */
+@media (max-width: 1200px) {
+    .seccion-platos .card-platos {
+        width: 100%;
+        color: green;
+    }
+    .seccion-platos .card-platos:hover{
+        width: 105%;
+    }
+}
+
+/* Para pantallas de 992px o menos (tablets grandes) */
+@media (max-width: 992px) {
+    .seccion-platos .card-platos {
+        width: 100%;
+        color: orange;
+    }
+    .seccion-platos .card-platos:hover{
+        width: 105%;
+    }
+}
+
+/* Para pantallas de 768px o menos (tablets) */
+@media (max-width: 768px) {
+    .seccion-platos .card-platos {
+        width: 100%;
+        color: teal;
+    }
+    .seccion-platos .card-platos:hover{
+        width: 100%;
+    }
+}
+
+/* Para pantallas de 600px o menos (smartphones) */
+@media (max-width: 600px) {
+    .seccion-platos .card-platos {
+        width: 100%;
+        color: blue;
+    }
+    .seccion-platos .card-platos:hover{
+        width: 100%;
+    }
+}
+
+
 @media (max-height: 660px){
     .barra-lateral .nombre-pagina{
         margin-bottom: 5px;

@@ -1,3 +1,73 @@
+$(function () {
+    
+    listar_platos();
+    
+});
+
+const listar_platos = function(){
+    $.ajax({
+        url: "controller/platos.php",
+        success: function(response){
+            const data = JSON.parse(response);
+            let html = ``;
+            if(data.length > 0){
+                data.map((x)=>{
+                    const {id, name} = x;
+                    html = 
+                        html + `<div class="group-card-platos col-lg-3 col-md-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <div class="card-platos card shadow-sm" onclick="alerta(${id})">
+                                            <img src="img/cat.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${name}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                });
+            }else{
+                html =
+                    html + `<div class="col-lg-2 col-sm-12">
+                                <div class="mb-3">
+                                    <div class="card-platos card" onclick="alerta()">
+                                        <img src="img/user.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">No-Found</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+            }
+            $("#listar-platos").html(html);
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------> SIDEBAR*/
 
 const cloud = document.getElementById("cloud");
 const barraLateral = document.querySelector(".barra-lateral");
